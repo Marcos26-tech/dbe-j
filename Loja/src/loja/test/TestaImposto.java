@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import loja.Pedido;
 import loja.imposto.CalculadoraDeImposto;
 import loja.imposto.Icms;
-import loja.imposto.Iss;
+import loja.imposto.Ipi;
 
 public class TestaImposto {
 	
@@ -23,6 +23,8 @@ public class TestaImposto {
 
 		imposto = calculadoraDeImposto.calcular(pedido);
 		System.out.println(imposto);
+		
+		System.out.println(pedido.getTotalDeItens());
 
 	}
 	

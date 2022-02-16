@@ -1,9 +1,8 @@
-package loja.test;
+package loja.imposto;
 
 import java.math.BigDecimal;
 
 import loja.Pedido;
-import loja.imposto.Imposto;
 
 public class Ipi implements Imposto {
 
