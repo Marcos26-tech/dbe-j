@@ -3,7 +3,6 @@ package loja;
 import java.math.BigDecimal;
 
 import loja.situacao.Aberto;
-import loja.situacao.EmailListener;
 import loja.situacao.HandlerSituacao;
 import loja.situacao.Situacao;
 
@@ -22,6 +21,9 @@ public class Pedido {
 		this.totalDeItens = 1;
 		this.situacao = new Aberto();
 		this.handlerSituacao = new HandlerSituacao();
+		
+		PedidoFacade.criarPedido(this);
+		
 	}
 	
 	public Pedido(BigDecimal valor, int totalDeItens) {
@@ -30,6 +32,8 @@ public class Pedido {
 		this.totalDeItens = totalDeItens;
 		this.situacao = new Aberto();
 		this.handlerSituacao = new HandlerSituacao();
+		
+		PedidoFacade.criarPedido(this);
 	}
 	
 	public void abrirChamado() {
@@ -54,6 +58,11 @@ public class Pedido {
 
 	//get
 	public BigDecimal getValor() {
+//		try {
+//			Thread.sleep(3000);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 		return valor;
 	}
 	
