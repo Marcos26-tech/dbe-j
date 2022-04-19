@@ -7,7 +7,8 @@
 
 <ui:composition template="/_template.xhtml">
 	<ui:define name="content">
-		<p:messages>
+	
+		<p:messages id="msg">
 			<p:autoUpdate />
 		</p:messages>
 		
@@ -27,7 +28,9 @@
 							value="#{setupBean.setup.name}" 
 							required="true"
 							requiredMessage="O campo nome é obrigatório"
-						/>
+						>
+							<f:ajax event="blur" render="msg" />
+						</p:inputText>
 					</div>
 					<div class="p-field">
 						<label for="description">Description</label>
@@ -38,6 +41,7 @@
 							validatorMessage="A descrição deve ter pelo menos 10 caracteres"
 						>
 							<f:validateLength minimum="10"/>
+							<f:ajax event="blur" render="msg" />						
 						</p:inputTextarea>
 					</div>
 					<div class="p-field">
@@ -51,6 +55,7 @@
 							validatorMessage="O preço deve ser positivo"
 						>
 							<f:validateDoubleRange minimum="0" />
+							<f:ajax event="blur" render="msg" />	
 						</p:inputNumber>
 					</div>
 				</div>
