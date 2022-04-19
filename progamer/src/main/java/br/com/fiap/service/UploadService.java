@@ -15,6 +15,7 @@ public abstract class UploadService {
 
 	private static ServletContext servletContext= (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
     private static String path=servletContext.getRealPath("/");
+    
     private static final String DESTINATION = path;
 	
     public static String write(UploadedFile file, String folder) {
