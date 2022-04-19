@@ -7,6 +7,9 @@
 
 <ui:composition template="/_template.xhtml">
 	<ui:define name="content">
+		<p:messages>
+			<p:autoUpdate />
+		</p:messages>
 		
 		<!-- FORM -->
 		<h:form>
@@ -18,17 +21,37 @@
 				<div class="ui-fluid">
 					<div class="p-field">
 						<label for="name">Name</label>
-						<p:inputText id="name" type="text" value="#{setupBean.setup.name}" />
+						<p:inputText 
+							id="name" 
+							type="text" 
+							value="#{setupBean.setup.name}" 
+							required="true"
+							requiredMessage="O campo nome é obrigatório"
+						/>
 					</div>
 					<div class="p-field">
 						<label for="description">Description</label>
-						<p:inputTextarea id="description" type="text"
-							value="#{setupBean.setup.description}" />
+						<p:inputTextarea 
+							id="description" 
+							type="text"
+							value="#{setupBean.setup.description}"
+							validatorMessage="A descrição deve ter pelo menos 10 caracteres"
+						>
+							<f:validateLength minimum="10"/>
+						</p:inputTextarea>
 					</div>
 					<div class="p-field">
 						<label for="price">Price</label>
-						<p:inputNumber id="price" value="#{setupBean.setup.price}"
-							symbol="R$ " decimalSeparator="," thousandSeparator="." />
+						<p:inputNumber 
+							id="price" 
+							value="#{setupBean.setup.price}"
+							symbol="R$ " 
+							decimalSeparator="," 
+							thousandSeparator="."
+							validatorMessage="O preço deve ser positivo"
+						>
+							<f:validateDoubleRange minimum="0" />
+						</p:inputNumber>
 					</div>
 				</div>
 

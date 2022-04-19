@@ -8,7 +8,12 @@
 
 	<ui:composition template="/_template.xhtml">
 		<ui:define name="content">
-			<h:form>
+		
+		<p:messages>
+			<p:autoUpdate />
+		</p:messages>
+		
+		<h:form>
 		<div class="card" style="margin:1em">
 			<p:dataTable var="setup" value="#{setupBean.all}">
 				<p:column headerText="id">
